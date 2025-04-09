@@ -46,6 +46,15 @@ const UseCaseScenario = () => {
           </div>
         </div>
         
+        <div className="bg-agent-100 p-4 rounded-md mb-5">
+          <h3 className="text-lg font-semibold text-agent-800 mb-2">How It Helps You</h3>
+          <p className="text-gray-700">
+            Imagine meeting a potential client in just minutes. With our AI-powered research agent, you'll receive a
+            comprehensive report detailing not only their background and history, but also identifying potential pain points
+            and YOUR possible solutions - helping you close deals faster.
+          </p>
+        </div>
+        
         <div className="text-center">
           <Button className="bg-agent-600 hover:bg-agent-700" size="lg">
             Try It Now

@@ -33,20 +33,22 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="w-full lg:w-1/2">
-            <ReportPreview />
+          <div className="w-full lg:w-1/2 flex flex-col gap-8">
+            {/* Deal of the Century Scenario + How It Helps You */}
+            <UseCaseScenario />
             
-            <div className="mt-10">
-              <UseCaseScenario />
-            </div>
+            {/* Report Preview moved below scenario */}
+            <ReportPreview />
           </div>
         </div>
         
         <div className="space-y-16 mb-10">
+          {/* How It Works section */}
           <div className="flex justify-center">
             <HowItWorks />
           </div>
           
+          {/* Features section */}
           <div className="flex justify-center">
             <Features />
           </div>
