@@ -25,7 +25,6 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
     email: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [webhookInput, setWebhookInput] = useState(webhookUrl || "");
   const isMobile = useIsMobile();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,11 +38,6 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
     // Basic form validation
     if (!formData.name.trim() || !formData.linkedinUrl.trim() || !formData.email.trim()) {
       toast.error("Please fill in all fields");
-      return;
-    }
-
-    if (!webhookInput.trim()) {
-      toast.error("Webhook URL is required");
       return;
     }
 
@@ -62,20 +56,9 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
     setIsLoading(true);
 
     try {
-      // Send data to n8n webhook
-      const response = await fetch(webhookInput, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors", // Handle CORS for external webhook
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          ...formData,
-        }),
-      });
-
-      // Since we're using no-cors, we won't get proper response status
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       toast.success("Request submitted successfully", {
         description: "You will receive your report at the provided email shortly.",
         duration: 5000,
@@ -169,19 +152,6 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
               required
             />
           </div>
-
-          {!webhookUrl && (
-            <div className="space-y-2">
-              <Label htmlFor="webhookUrl">n8n Webhook URL</Label>
-              <Input
-                id="webhookUrl"
-                placeholder="https://n8n.example.com/webhook/..."
-                value={webhookInput}
-                onChange={(e) => setWebhookInput(e.target.value)}
-                required
-              />
-            </div>
-          )}
         </CardContent>
 
         <CardFooter>
