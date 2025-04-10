@@ -51,13 +51,30 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
     // LinkedIn URL validation (basic)
     if (!formData.linkedinUrl.includes("linkedin.com")) {
       toast.warning("Please enter a valid LinkedIn URL");
+      return;
     }
 
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send data to webhook
+      const webhookEndpoint = 'https://ai.thejaspertan.com/webhook-test/client-insight';
+      
+      const response = await fetch(webhookEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          clientName: formData.name,
+          linkedinProfileUrl: formData.linkedinUrl,
+          deliveryEmail: formData.email,
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Webhook request failed with status ${response.status}`);
+      }
       
       toast.success("Request submitted successfully", {
         description: "You will receive your report at the provided email shortly.",
