@@ -50,16 +50,16 @@ const ReportPreview = () => {
           {/* Sample Report Image - Right Side with ScrollArea and animation */}
           {/* Sample Report PDF Viewer - Scrollable */}
           <div className={`w-full md:w-1/2 border rounded-md overflow-hidden transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <ScrollArea className="h-[500px]">
-            <iframe 
-              src="/lovable-uploads/RyanKaupReport.pdf"
-              width="100%"
-              height="500px"
-              className="border-none"
-              title="Sample report showing client analysis and key facts"
-            />
-            </ScrollArea>
-          </div>
+  <ScrollArea className="w-full h-[500px] overflow-x-auto overflow-y-hidden">
+    <iframe 
+      src="/lovable-uploads/RyanKaupReport.pdf"
+      width="1000px" // 👈 wider than container to force horizontal scroll
+      height="500px"
+      className="border-none"
+      title="Sample report showing client analysis and key facts"
+    />
+  </ScrollArea>
+</div>
         </div>
       </CardContent>
     </Card>
