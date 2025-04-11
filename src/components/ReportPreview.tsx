@@ -51,7 +51,7 @@ const ReportPreview = () => {
           <div className={`w-full md:w-1/2 border rounded-md overflow-hidden transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <ScrollArea className="h-[500px]">
               <img 
-                src="/lovable-uploads/2eef04df-bf48-486b-9369-4866d09b375f.png" 
+                src="/lovable-uploads/RyanKaupReport.pdf" 
                 alt="Sample report showing client analysis and key facts" 
                 className="w-full"
               />
