@@ -61,7 +61,7 @@ const ResearchForm = ({ webhookUrl }: ResearchFormProps) => {
       const webhookEndpoint = 'https://ai.thejaspertan.com/webhook-test/client-insight';
       
       const response = await fetch(webhookEndpoint, {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
